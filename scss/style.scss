@@ -1,0 +1,348 @@
+@@include('reset.scss')
+@mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;} 
+//@include flexbox();
+@mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+//@include rotate(20deg);
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,800,900&display=swap');
+$main_font: 'Roboto', sans-serif;
+
+.home {
+	padding: 45px 0 0 0 ;
+	background-color: green;
+	height: 700px;
+	color: #fff;
+}
+.one {
+	background-color: red;
+	height: 700px;
+}
+.two {
+	background-color: yellow;
+	height: 700px;
+}
+.three {
+	background-color: #000;
+	height: 700px;
+}
+
+
+//////////////////////////////////////////////////////////////////менюха//////////////////////////////////////////////////////
+
+.menu {
+	background-color: rgba(0, 0, 0, 0.5);
+	 width: 100%;
+	 position: fixed;
+	z-index: 50;
+	font-family: $main_font;
+}
+.menu_body {
+	max-width: 1220px;
+	padding: 0 10px;
+	margin: 0px auto;
+	@include flexbox();
+	align-items: center;
+	justify-content: space-between;
+}
+.menu__logo {
+	z-index: 3;
+	@include flexbox();
+	align-items: center;
+}
+.menu__logo_img {
+	width: 60px;
+	flex: 0 0 auto;
+	margin: 0 20px 0 0 ;
+	img{
+		max-width: 100%;
+	}
+}
+.logo_title {
+	font-size: 30px;
+	font-weight: 700;
+	a{
+		color: #fff;
+	}
+	@media screen and (max-width: 992px){
+		font-size: 25px;
+	}
+	@media screen and (max-width: 520px){
+		font-size: 16px;
+		margin: 0 0 5px 0;
+	}
+}
+.header__burger {
+	display: none;
+}
+@media screen and (max-width: 768px){
+	.header__burger{
+		display: block;
+		position: relative;
+		z-index: 3;
+		width: 35px;
+		height: 28px;
+		&:before, &:after{
+			content: '';
+			background-color: #fff;
+			position: absolute;
+			width: 100%;
+			height: 5px;
+			left: 0;
+			transition: 0.5s;
+		}
+			&:before{
+				top: 0;
+			}
+			&:after{
+				bottom: 0;
+			}
+	}
+
+	.header__burger span{
+		background-color: #fff;
+		position: absolute;
+		width: 100%;
+		height: 5px;
+		left: 0;
+		top: 11px;
+		transition: 1s;
+	}
+
+	.header__burger.active{
+		&:before{
+			top: 11.5px;
+			@include rotate(45deg);
+		}
+		&:after{
+			@include rotate(-45deg);
+			bottom: 11.5px;
+		}
+	}
+	.header__burger.active span {
+		transform: scale(0);
+	}
+	.menu__nav.active{
+		top: 0;
+	}
+	.menu__list {
+		display: block;
+			li{
+		margin: 20px;
+		border-right: 0px solid #ebebeb;
+		}
+	}
+}
+
+	
+.menu__nav {
+	@media screen and (max-width: 768px){
+		position: fixed;
+		top: -100%;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		overflow: auto;
+		transition: 0.5s;
+		padding: 110px 10px 20px 10px;
+	}	
+	}
+
+.menu__list {
+	@include flexbox();
+	align-items: center;
+	font-size: 20px;
+	margin: 10px 0 0 0;
+	font-weight: 500;
+	@media (max-width: 992px){
+		font-size: 15px;
+	}
+}
+.menu__link {
+	color: #fff;
+	margin: 0 20px 0 0;
+	text-transform: uppercase;
+	letter-spacing:1.1px;
+	position: relative;
+	@media screen and (max-width: 992px){
+		margin: 0 15px 0 0;
+	}
+		&:after{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 0%;
+		height: 2px;
+		background-color: #fff;
+		bottom: 0;
+		transition: 0.5s;
+	}
+	&:hover{
+		color: #fff;
+		&:after{
+			left: 0;
+			width: 25%;
+		}
+	}
+
+}
+.menu__link.active {
+	&:after{
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 25%;
+		height: 2px;
+		background-color: #fff;
+		bottom: 0;
+	}
+	&:hover{
+		color: #fff;
+	}
+}
+
+/////////////////////////////////////////////////////////////_fomr///////////////////////////////////////////////////////////
+
+.form {
+	background-color: pink;
+}
+.form_body {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 20px 10px;
+}
+
+.form_item {
+	margin-bottom: 20px;
+}
+.form_lable {
+	font-size: 18px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.form_input {
+	height: 50px;
+	padding: 0 10px;
+	border-radius: 5px;
+	border: 1px solid blue;
+	width: 100%;
+	font-size: 17px;
+	transition: all 0.5s ease 0s;
+}
+
+textarea.form_input {
+	min-height: 120px;
+	resize: vertical;
+	padding: 10px;
+}
+
+
+.form_input:focus{
+	box-shadow: 0 0 15px #fff;
+}
+
+
+.form_input._error{
+	box-shadow: 0 0 15px red;
+} 
+.form_input._error::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: red;
+}
+.form_input._error::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+}
+.form_input._error:-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+.form_input._error:-moz-placeholder { /* Firefox 18- */
+  color: red;
+} 
+
+
+
+
+
+.message{
+	display: none;
+	margin: 30px 0 30px 0;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.message._success{
+	display: block;
+	color: yellowgreen;
+	text-shadow: 1px 0 10px yellowgreen;
+}
+
+
+.message._false{
+	display: block;
+	color: red;
+	text-shadow: 1px 0 10px red;
+}
+
+
+.form_button {
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 60px;
+	background-color:  green;
+	color: #fff;
+	font-size: 18px;
+	font-family: $main_font;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 700;
+	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7),0 1px 5px rgba(0, 0, 0, 0.7);
+	position: relative;
+	top: 0;
+	transition: background-color 0.5s ease 0s;
+}
+.form_button:hover{
+	background-color: yellowgreen;
+}
+
+.form_button:active{
+	top: 3px;
+	box-shadow: 0 2px 0  #000;
+}
+
+
+
+
+
+.checkbox_input{
+	display: none;
+}
+
+
+.checkbox_label{
+	display: block;
+	margin: 0 10px 0 0;
+	width: 15px;
+	height: 15px;
+	border: 2px solid #999;
+	cursor: pointer;
+}
+
+.checkbox_input:checked +.checkbox_label{
+	background-color: #999;
+}
+
+.checkbox_input._error +.checkbox_label{
+	border: 2px solid red;
+	box-shadow: 0 0 15px red;
+}
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>project</title>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<div class="wrapper" id="wrapper">
+<!--------------------------------------------МЕНЮ-------------------------------------------------------------------------->
+
+<div class="menu">
+	<div class="menu_body">
+			<div class="menu__logo">
+				<div class="menu__logo_img"><img src="./img/Jellyfish.jpg" alt="logo">	</div>				
+				<div class="logo_title"><a href="index.html">logo title</a></div>												
+			</div>
+			<div class="header__burger">
+			<span></span>
+			</div>
+			<nav class="menu__nav">
+				<ul class="menu__list">					
+					<li><a href="#home" class="menu__link _slow_scroll">home</a></li>
+					<li><a href="#one" class="menu__link _slow_scroll">one</a></li>
+					<li><a href="#two" class="menu__link _slow_scroll">two</a></li>
+					<li><a href="#three" class="menu__link _slow_scroll">three</a></li>
+					<li><a href="#form" class="menu__link _slow_scroll">form</a></li>
+				</ul>
+			</nav>
+	</div>			
+</div>
+<!--------------------------------------------МЕНЮ-------------------------------------------------------------------------->
+
+
+
+
+
+<div class="home" id="home">
+<p>*бургер</p>
+<p>*плавный скрол</p>
+<p>*валидатор</p>
+<p>верстка чекбокса</p>
+<p>попап</p>
+<p>акардион</p>
+<p>табы</p>
+<p>слайдер свайпер</p>
+
+</div>
+<div class="one" id="one">one</div>
+<div class="two" id="two">two</div>
+<div class="three" id="three">three</div>
+
+
+
+
+<!--------------------------------------------ФОРМА------------------------------------------------------------------------------->
+<!-- в поля которые надо проверить нужно добавить _req и _text или _email -->
+<div class="form">
+	<form action="#" id="form" class="form_body">
+
+			<div class="form_item">
+				<label for="formName" class="form_lable">Имя*</label>
+				<input type="text" id="formName" name="name"  placeholder="Введите Имя" class="form_input _req _text">
+			</div>
+			<div class="form_item">
+				<label for="formEmail" class="form_lable">Email*</label>
+				<input type="text" id="formEmail" name="email"  placeholder="Введите Email"  class="form_input _req _email">
+			</div>
+			<div class="form_item">
+				<label for="formMassege" class="form_lable">Сообщение</label>
+				<textarea name="massege" id="formMassege" class="form_input _text _req"></textarea>			
+			</div>
+			<div class="form_item">
+				<div class="checkbox">
+				<input id="formAgreement" checked type="checkbox" name="agreement" class="checkbox_input _req">
+				<label for="formAgreement" class="checkbox_label"></label>
+				<span>я даю свое согласие</span>
+			</div>	
+		</div>
+			<div class="message" id="message"></div>
+			<button type="submit" class="form_button">send</button>
+
+	</form>
+</div>
+
+<!-- checkbox
+
+пишем input с type="checkbox" и связываем его через id c тегом label
+
+в style.css скрваем сам checkbox
+.checkbox_input{
+	display: none;
+}
+
+а стили прописываем 
+
+.checkbox_label{
+	display: block;
+	margin: 0 10px 0 0;
+	width: 15px;
+	height: 15px;
+	border: 2px solid #999;
+	cursor: pointer;
+}
+//плюсик "+" это соседний селектор(только соседний и никакой больше. У обоих также должен быть один и тот же родительский элемент.)
+.checkbox_input:checked +.checkbox_label{
+	background-color: #999;
+}-->
+
+<!--------------------------------------------ФОРМА------------------------------------------------------------------------------->
+
+
+
+
+
+</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
