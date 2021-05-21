@@ -131,9 +131,23 @@ return error;
 
 
 
+////////////////////////////////////////////////////////////////////попап////////////////////////////////////////////////////////////////////
 
 
+  const popup = document.querySelector('.popup')
+      const modal_body = document.querySelector('.modal_body')
+      const modal = document.querySelector('.modal')
+      const cross = document.querySelector('.cross')
 
+      popup.addEventListener('click', (event) => {
+        modal.classList.toggle("active");
+        modal_body.classList.toggle("active");
+      })
+
+      cross.addEventListener('click', (event) => {
+        modal.classList.toggle("active");
+        modal_body.classList.toggle("active");
+      })
 
 
 
