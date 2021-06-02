@@ -40,6 +40,49 @@ window.onload = function() {
         });
     });
 
+//////////////////////////////////////////////////////////////////////Анимация при прокрутке////////////////////////////////////////////////////////////////////
+const animItems = document.querySelectorAll('._anim_items');
+
+if(animItems.length > 0){//проверяем есть ли они такие items и только тогад выполняем эту функцию
+	window.addEventListener('scroll', animOnScroll);
+	function animOnScroll(){
+		for(let index = 0; index < animItems.length; index++){
+			const animItem = animItems[index];
+			const animItemHeight = animItem.offsetHeight;// высота элемента с учётом вертикальных полей и границ в пикселях.
+			const animItemOffset = offset(animItem).top;//позицию элемента относительно верха
+			const animStart = 4;//коофициэнт начала анимации
+
+			//момент когда нашему обьекту бедет даваться класс _active
+			let animItemPoint = window.innerHeight - animItemHeight / animStart;//когда мы проскролим 1/4 часть нужного itema
+			if(animItemHeight > window.innerHeight){//если анимурованый обьект выше окна браузера
+				animItemPoint = window.innerHeight - window.innerHeight / animStart;
+			}
+
+			if((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)){
+				animItem.classList.add('_active');
+			}else{
+				if(!animItem.classList.contains('_anim_no_hide')){//если добавить элементу _anim_no_hide то повторной анимации не будет
+					animItem.classList.remove('_active');
+				}
+				
+			}
+
+		}
+	}
+	//функция offset спизжена из интернета она возвращает позицию элемента относительно верха или лева, например offset(el).top;
+	function offset(el){
+		const rect = el.getBoundingClientRect(),
+		scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		return { top: rect.top + scrollTop, left: rect.left + scrollLeft}
+	}
+	setTimeout(() =>{
+		animOnScroll()//вызываем эту функцию и при скроле и изначально потому что нужный блок может быть уже должен быть отображонным на экране
+	}, 300);
+}
+
+
+
 
 //////////////////////////////////////////////////////////////////////tabs////////////////////////////////////////////////////////////////////
 

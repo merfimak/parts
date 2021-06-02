@@ -7,23 +7,18 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,800,900&display=swap');
 $main_font: 'Roboto', sans-serif;
 
+
+.wrapper{
+	font-family: $main_font;
+}
+
+
+
 .home {
 	padding: 45px 0 0 0 ;
 	background-color: green;
 	height: 700px;
 	color: #fff;
-}
-.one {
-	background-color: red;
-	height: 700px;
-}
-.two {
-	background-color: yellow;
-	height: 700px;
-}
-.three {
-	background-color: #000;
-	height: 700px;
 }
 
 
@@ -185,6 +180,7 @@ $main_font: 'Roboto', sans-serif;
 		}
 	}
 
+
 }
 .menu__link.active {
 	&:after{
@@ -200,6 +196,163 @@ $main_font: 'Roboto', sans-serif;
 		color: #fff;
 	}
 }
+
+
+
+
+/////////////////////////////////////////////////////////////ненавязчивая анимация///////////////////////////////////////////////////////////
+
+
+
+.decoration {
+	background-color: red;
+	padding: 10px;
+}
+.decoration_body {
+	margin: 0 auto;
+	max-width: 1200px;
+
+}
+
+
+.decoration_title{
+	font-weight: 700;
+	font-size: 30px;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 20px 0 20px 0;
+}
+////////////////////////////////////////////увеличение картинки при наведении
+.decoration_images {
+	max-width: 100%;
+	@include flexbox();
+	padding: 10px;
+	justify-content: space-between;
+}
+.decoration_scale {
+	width: 300px;
+	overflow: hidden; /* Скрываем всё за контуром */
+	img{
+		max-width: 100%;
+		transition: 1s; /* Время эффекта */
+    	display: block; /* Убираем небольшой отступ снизу */
+    	&:hover{
+		transform: scale(1.1); /* Увеличиваем масштаб */
+	}
+	}
+	
+}
+////////////////////////////////////////////Анимация при прокрутке 
+
+._anim_show{
+	transform: translate(0px, 100px);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
+}
+
+._anim_show._active,
+._active ._anim_show{
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+
+
+
+
+
+
+
+.decoration_title_anim {
+	font-weight: 700;
+	font-size: 20px;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+	color: #fff;
+
+	transform: translate(0px, 100px);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
+}
+
+.decoration_title_anim._active{
+	transform: translate(0px, 0px);
+	opacity: 1;
+}
+.decoration_text_anim {
+	font-weight: 700;
+	font-size: 15px;
+	margin: 0 0 20px 0;
+	color: #fff;
+
+	transform: translate(200px, 0px) rotate(0.5turn);
+	opacity: 0;
+	transition: all 0.8s ease 0.7s;//тут появление с задежкой
+}
+
+.decoration_text_anim._active{
+	transform: translate(0px, 0px) rotate(1turn);
+	opacity: 1;
+	
+}
+
+
+.dicoration_items_anim {
+	max-width: 100%;
+	@include flexbox();
+	padding: 10px;
+	justify-content: space-between;
+}
+
+.dicoration_item_anim{
+	flex: 0 1 300px;
+}
+.dicoration_item_anim_img{
+	width: 300px;
+	margin: 0 auto 20px;
+	transform: scale(0);
+	opacity: 0;
+	transition: all 0.8s ease 0s;
+	img{
+		max-width: 100%;
+    }
+}
+
+.dicoration_item_anim_img._active{
+	transform:  scale(1);
+	opacity: 1;
+}
+
+.dicoration_item_anim_text{
+text-align: center;
+color: #fff;
+transform: translate(0px, 50%);
+	opacity: 0;
+	transition: all 0.3s ease 0.4s;
+}
+
+.dicoration_item_anim_text._active{
+transform: translate(0px, 0px);
+	opacity: 1;
+	transition: all 0.8s ease 0.6s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -223,6 +376,10 @@ $main_font: 'Roboto', sans-serif;
 	text-transform: uppercase;
 	text-align: center;
 	margin: 0 0 20px 0;
+	transition: 1s; /* Время эффекта */
+		&:hover{
+		transform: scale(1.1); /* Увеличиваем масштаб */
+	}
 }
 
 .tabs_buttons {
@@ -292,7 +449,8 @@ $main_font: 'Roboto', sans-serif;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7),0 1px 5px rgba(0, 0, 0, 0.7);
 	position: relative;
 	top: 0;
-	transition: background-color 0.5s ease 0s;
+	transition: all 0.8s ease 0.2s;
+
 }
 .modal {
 	 width: 100%;
