@@ -18,8 +18,39 @@ window.onload = function() {
     }
 
 
+////////////////////////////////////////////////////////////////////// СУБ МЕНЮ ////////////////////////////////////////////////////////////////////
 
 
+
+//если isMobile возвращает true то занчит что на сайт зашли с тачскрин устройства.
+let isMobile = {
+  Android: function() {return navigator.userAgent.match(/Android/i);},
+  BlackBerry: function() {return navigator.userAgent.match(/BlackBerry/i);},
+  iOS: function() {return navigator.userAgent.match(/iPhone|iPad|iPod/i);},
+  Opera: function() {return navigator.userAgent.match(/Opera Mini/i);},
+  Windows: function() {return navigator.userAgent.match(/IEMobile/i);},
+  any: function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());}
+};
+
+
+    let body=document.querySelector('body');
+if(isMobile.any()){
+    body.classList.add('touch');
+    let arrow=document.querySelectorAll('.arrow');
+  for(i=0; i<arrow.length; i++){
+      let thisLink=arrow[i].previousElementSibling;//cсылка на следующий уровено(пункт радительског меню)
+      let subMenu=arrow[i].nextElementSibling;//меню которое должно выпасть
+      let thisArrow=arrow[i];//текущая стрелка
+
+      thisLink.classList.add('parent');//в пункт меню добавляется маржин справа, а в этот маржин становится стрелочка
+    arrow[i].addEventListener('click', function(){
+      subMenu.classList.toggle('open');// открывается закрывается под меню
+      thisArrow.classList.toggle('active');//стрелочка поворачивается вниз и вверх
+    });
+  }
+}else{
+  body.classList.add('mouse');
+}
 
 //////////////////////////////////////////////////////////////////////плавный скрол////////////////////////////////////////////////////////////////////
     document.querySelectorAll('._slow_scroll').forEach(link => {
@@ -28,8 +59,7 @@ window.onload = function() {
             let arr= this.getAttribute('href').split('#');//достаем ссылку делим ее по #  
             let href = arr[arr.length - 1];//достаем последний элимент массива это и будет название нужного нам блока
             const scrollTarget = document.getElementById(href);
-             const topOffset = document.querySelector('.menu').offsetHeight;
-             console.log(topOffset)//тут мы узнаем какой высоты у нас меню и пропишем ее в падинге у первого блока
+             const topOffset = document.querySelector('.menu').offsetHeight;//тут мы узнаем какой высоты у нас меню и пропишем ее в падинге у первого блока
            // const topOffset = 0; // если не нужен отступ сверху 
             const elementPosition = scrollTarget.getBoundingClientRect().top;//возвращает размер элемента и его позицию относительно viewport (часть страницы, показанная на экране, и которую мы видим).
             const offsetPosition = elementPosition - topOffset;

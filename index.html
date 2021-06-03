@@ -32,10 +32,68 @@
 			</div>
 			<nav class="menu__nav">
 				<ul class="menu__list">					
-					<li><a href="#home" class="menu__link _slow_scroll">home</a></li>
+					<li>
+						<a href="#home" class="menu__link _slow_scroll">home</a>
+						<span class="menu__arrow arrow"></span>
+						<ul class="sub-menu__list">
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+								<span class="sub-menu__arrow arrow"></span>
+								<ul class="sub-sub-menu__list">
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+						</ul>
+					</li>
 					<li><a href="#decoration" class="menu__link _slow_scroll">decoration</a></li>
 					<li><a href="#tubs" class="menu__link _slow_scroll">tubs</a></li>
-					<li><a href="#popup" class="menu__link _slow_scroll">popup</a></li>
+					<li>
+						<a href="#popup" class="menu__link _slow_scroll">popup</a>
+						<span class="menu__arrow arrow"></span>
+						<ul class="sub-menu__list">
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+						</ul>
+					</li>
 					<li><a href="#form" class="menu__link _slow_scroll">form</a></li>
 					<li><a href="#accord" class="menu__link _slow_scroll">accordion</a></li>
 					<li><a href="#swiper" class="menu__link _slow_scroll">swiper</a></li>
@@ -46,8 +104,56 @@
 <!--------------------------------------------МЕНЮ-------------------------------------------------------------------------->
 
 
+<!--------------------------------------------СУБ - МЕНЮ-------------------------------------------------------------------------->
+<!--
+1 для основного меню добавляем 
+.menu__list {
+	li{
+		position: relative;
+	}
+}
+
+2 добовляем сомо суб меню с скольконужными урованями
+ 					<span class="menu__arrow arrow"></span>- это стрелка, нжана для мобильной
+						<ul class="sub-menu__list">
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+								<span class="sub-menu__arrow arrow"></span>
+								<ul class="sub-sub-menu__list">
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+									<li>
+										<a href="" class="sub-sub-menu__link">Третий уровень</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+							<li>
+								<a href="" class="sub-menu__link">Второй уровень</a>
+							</li>
+						</ul>
 
 
+3 добовляем отступ у нужного нам пункта меню справа, шоб поместить туда стрелочку
+ .menu__link.parent{
+	margin: 0px 30px 0px 0px;
+}
+4 добовляем js и css стили
+
+-->
+<!--------------------------------------------СУБ - МЕНЮ-------------------------------------------------------------------------->
 
 <div class="home" id="home">
 <p>*бургер</p>
@@ -112,7 +218,7 @@
 		<div class="decoration_title">Анимация при прокрутке (скролле) страницы</div>
 		<div class="decoration_title_anim _anim_items _anim_no_hide">Анимация при прокрутке</div>
 		<div class="decoration_text_anim _anim_items">
-			Анимация при прокрутке Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Ducimus suscipit architecto quibusdam cupiditate doloribus consequuntur repellendus quam tempore reprehenderit at. Hic similique dolorem vero natus, ex repellendus nulla omnis, rerum.
+			Анимация при прокрутке Lorem i
 		</div>
 		<div class="dicoration_items_anim">
 			<div class="dicoration_item_anim">
