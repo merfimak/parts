@@ -19,6 +19,8 @@ $main_font: 'Roboto', sans-serif;
 	background-color: green;
 	height: 700px;
 	color: #fff;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 
@@ -373,7 +375,7 @@ body.touch .arrow {
 	  	 right: 10px;
 	  	width: 30px;
 	  	height: 30px;
-	  	background: url('../img/loupe.png');
+	  	background: url('../img/icons/loupe.png');
 	  	background-size: cover;
 	  }
 }
@@ -391,7 +393,6 @@ body.touch .arrow {
 .decoration_body {
 	margin: 0 auto;
 	max-width: 1200px;
-
 }
 
 
@@ -437,12 +438,6 @@ body.touch .arrow {
 	opacity: 1;
 }
 
-
-
-
-
-
-
 .decoration_title_anim {
 	font-weight: 700;
 	font-size: 20px;
@@ -465,13 +460,13 @@ body.touch .arrow {
 	margin: 0 0 20px 0;
 	color: #fff;
 
-	transform: translate(200px, 0px) rotate(0.5turn);
+	transform: rotate(0.5turn);
 	opacity: 0;
-	transition: all 0.8s ease 0.7s;//тут появление с задежкой
+	transition: all 1.8s ease 0.7s;//тут появление с задежкой
 }
 
 .decoration_text_anim._active{
-	transform: translate(0px, 0px) rotate(1turn);
+	transform: rotate(1turn);
 	opacity: 1;
 	
 }
@@ -518,26 +513,255 @@ transform: translate(0px, 0px);
 	transition: all 0.8s ease 0.6s;
 }
 
+////////////////////////////////////////////Анимация иконок
+
+.decoration_icons_body {
+	background-color: green;
+	max-width: 800px;
+	margin: 0 auto;
+	@include flexbox();
+	justify-content: space-around;
+	padding: 20px;
+}
+.decoration_icon {
+	width: 30px;
+	cursor: pointer;
+	img{
+		max-width: 100%;
+	}
+}
+
+
+//тут используется анимация, сначала прописываем название время и тд, а потом что происходит пишем уже отдельно в @keyframes
+
+
+// лучше всего подойдет к иконке телефона
+.icon_arrow {
+    	&:hover{
+		 animation: bounceright .3s alternate ease infinite;//alternate Анимация меняет направление в каждом цикле, то есть в первом цикле она начинает с начального положения, доходит до конечного, а во втором цикле продолжает с конечного и доходит до начального и так далее
+	}
+}
+
+@keyframes bounceright {
+  from { transform: translateX(0); }
+  to   { transform: translateX(3px); }
+}
+
+
+// лучше всего подойдет к телефона
+.icon_tel {
+		&:hover{
+			animation: wiggle .05s alternate ease infinite;
+	}
+}
+
+@keyframes wiggle {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(30deg); }
+}
+.icon_youtube {
+	img{
+		display: block;
+			transition: 0.3s; /* Время эффекта */
+    	&:hover{
+		transform: scale(1.1); /* Увеличиваем масштаб */
+	}
+	}
+	
+}
+.icon_search {
+    	&:hover{
+		animation: bulk 1s ease infinite;
+	}
+}
+@keyframes bulk {
+ 0%{
+transform: scale(1);
+}
+50%{
+transform: scale(1.1);
+}
+100%{
+transform: scale(1);
+}
+}
+
+.icon_telegram {
+	 transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    	&:hover{
+		transform: scale(1.2, 1.2);
+		transition: all 0.35s cubic-bezier(0.000, 1.270, 0.460, 1.650);
+	}
+}
+
+
+////////////////////////////////////////////анимация кнопок 
+.decoration_btns{
+	background-color: #fff;
+	padding: 20px;
+	@include flexbox();
+	align-items: center;
+}
+
+
+.decoration_btn_one{
+	flex: 0 1 200px;
+	padding: 10px;
+  position: relative;
+  display: block;
+  color: #ff7675;
+ font-size: 24px;
+  font-family: $main_font;
+  text-decoration: none;
+  margin: 20px;
+  border: 2px solid #ff7675;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s all ease;
+  z-index: 1;
+  outline: none;
+  text-align: center;
+	   &:before{
+	  background: #ff7675;
+	  content: "";
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%,-50%);
+	  z-index: -1;
+	  transition: all 0.6s ease;
+	  outline: none;
+	  width: 0%;
+	  height: 100%;
+	}
+	 &:hover{
+  	 color: #fff;
+  	 &:before{
+		width: 100%;
+  	 }
+  }
+}
+
+.decoration_btn_two{
+	flex: 0 1 200px;
+	padding: 10px;
+  position: relative;
+  display: block;
+  color: #ff7675;
+ font-size: 24px;
+  font-family: $main_font;
+  text-decoration: none;
+  margin: 20px;
+  //border: 2px solid #ff7675;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s all ease;
+  z-index: 1;
+  outline: none;
+  text-align: center;
+	   &:before{
+	  background: #ff7675;
+	  content: "";
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%,-50%);
+	  z-index: -1;
+	  transition: all 0.6s ease;
+	  outline: none;
+	 width: 100%;
+  height: 0%;
+	}
+	 &:hover{
+  	 color: #fff;
+  	 &:before{
+		  height: 100%;
+  	 }
+  }
+}
 
 
 
 
+.decoration_btn_tree {
+	margin: 20px;
+	font-size: 24px;
+	display: inline-block;
+    color: #07aa19;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    	&:after {
+		    display: block;
+		    content: "";
+		    background-color: #07aa19;
+		    height: 3px;
+		    width: 0%;
+		    left: 50%;
+		    position: absolute;
+		    transition: width .3s ease-in-out;
+		    transform: translateX(-50%);
+		}
+		   &:hover,&:focus{
+		   	&:after {
+			width: 100%;
+		}
+		}
+
+}
 
 
+.decoration_btn_four{
+		margin: 20px;
+	font-size: 24px;
+	display: inline-block;
+    color: #07aa19;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    	&:after {
+		    display: block;
+		    content: "";
+		    background-color: #07aa19;
+		    height: 3px;
+		    width: 0%;
+		    position: absolute;
+		    transition: width .3s ease-in-out;
+
+		}
+
+		   &:hover,&:focus{
+		   	&:after {
+			width: 100%;
+		}
+		}
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+.decoration_btn_five{
+	margin: 20px;
+	font-size: 24px;
+	text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    border: 1px solid #777;
+    position: relative;
+	transition: 0.5s all ease;
+	background-color: #fff;
+    color: #000;
+	&:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	}
+   &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	}
+}
 
 /////////////////////////////////////////////////////////////tabs///////////////////////////////////////////////////////////
 

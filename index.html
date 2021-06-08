@@ -8,7 +8,7 @@
 	<title>project</title>
 	<link rel="stylesheet" href="css/swiper-bundle.min.css">
 	<link rel="stylesheet" href="./css/swiper-bundle.min.css">
-	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="wrapper" id="wrapper">
@@ -65,7 +65,14 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="#decoration" class="menu__link _slow_scroll">decoration</a></li>
+					<li>
+						<a href="#decoration" class="menu__link _slow_scroll">decoration</a>
+						<ul class="sub-menu__list">
+							<li>
+								<a href="#decoration_btns" class="sub-menu__link _slow_scroll">кнопки</a>
+							</li>
+						</ul>
+					</li>
 					<li><a href="#tubs" class="menu__link _slow_scroll">tubs</a></li>
 					<li>
 						<a href="#popup" class="menu__link _slow_scroll">popup</a>
@@ -170,7 +177,10 @@
 
 
 <br />
-
+<p> сделать несколько анимацию иконок</p>
+<p> сделать несколько анимацию кнопок</p>
+	поковыряться на этом сайте и еще ченить поискать
+http://beloweb.ru/javascript-jquery/10-neveroyatnyih-effektov-pri-navedenii-i-pri-klike-na-knopki-ssyilki-i-kartinki.html
 
 </div>
 <!--------------------------------------------поиск по сайту---------------------------------------------------------------->
@@ -271,15 +281,38 @@
 				</div>
 			</div>
 		</div>
-	</div>
+				<!--------------   Анимация иконки---------------------------->
+		<div class="decoration_title">Анимация иконок</div>
+		<div class="decoration_icons_body">
+			<div class="decoration_icon icon_arrow"><img src="img/icons/arrow.svg" alt=""></div>
+			<div class="decoration_icon icon_search"><img src="img/icons/search.svg" alt=""></div>
+			<div class="decoration_icon icon_youtube"><img src="img/icons/youtube.svg" alt=""></div>
+			<div class="decoration_icon icon_tel"><img src="img/icons/tel.png" alt=""></div>
+			<div class="decoration_icon icon_telegram"><img src="img/icons/telegram.svg" alt=""></div>
+		</div>
+	<!--------------   Анимация кнопок---------------------------->
+
+
+<div class="decoration_title">Анимация кнопок</div>
+<div class="decoration_btns" id="decoration_btns">
+
+	<a href="#" class="decoration_btn_one">Hover Me</a>
+    <a href="#" class="decoration_btn_two">Hover Me</a>
+
+    <a href="#" class="decoration_btn_tree">Hover Me</a>
+    <a href="#" class="decoration_btn_four">Hover Me</a>
+
+    <a href="#decoration_btns" class="decoration_btn_five">Hover Me</a>
+
 </div>
+
 
 <!-----
 	че еще можно добавить
 
-	поковыряться на этом сайте
+	поковыряться на этх сайтах
 http://beloweb.ru/javascript-jquery/10-neveroyatnyih-effektov-pri-navedenii-i-pri-klike-na-knopki-ssyilki-i-kartinki.html
-
+https://html-plus.in.ua/codepen-examples-css-animation-menu/
 
 
 
