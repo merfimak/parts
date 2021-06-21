@@ -18,6 +18,21 @@ window.onload = function() {
     }
 
 
+
+
+    ///////////////////////////////////////////////////////////////////////затемнение при прокрутке/////////////////////////////////////////////////////////////////////
+window.addEventListener('scroll', function(e) {
+const scro = document.querySelector('.menu');
+if(pageYOffset > 100){
+  scro.style.transition = '0.5s';
+  scro.style.backgroundColor = '#000000';
+}else{
+  scro.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+}
+});
+
+
+
 ////////////////////////////////////////////////////////////////////// СУБ МЕНЮ ////////////////////////////////////////////////////////////////////
 
 
@@ -70,6 +85,10 @@ if(isMobile.any()){
         });
     });
 
+
+
+
+
 //////////////////////////////////////////////////////////////////////Анимация при прокрутке////////////////////////////////////////////////////////////////////
 const animItems = document.querySelectorAll('._anim_items');
 
@@ -110,6 +129,13 @@ if(animItems.length > 0){//проверяем есть ли они такие it
 		animOnScroll()//вызываем эту функцию и при скроле и изначально потому что нужный блок может быть уже должен быть отображонным на экране
 	}, 300);
 }
+
+
+
+
+
+
+
 
 
 
@@ -155,6 +181,63 @@ if(animItems.length > 0){//проверяем есть ли они такие it
             modal.classList.toggle("active");
             modal_body.classList.toggle("active");
           })
+
+
+//////////////////////////////////////////////// когда несколько попапов
+
+
+/*
+первый 
+
+в кнопке прописываем в data-popup название модального окна(одно слово)
+
+<div class="_popup_btn" data-popup="calculate">Розрахувати вартість</div>
+
+
+в модальном окне добовляем к modal_, modal_body_, cross_ то слово которое мы добавили в кнопке в data-popup 
+
+<div class="modal_calculate">
+  <div class="modal_body_calculate">
+    <div class="cross cross_calculate"></div>*/
+
+
+/*
+второй
+<div class="pink_btn _popup_btn" data-popup="order">Замовити</div>
+
+
+<div class="modal_order">
+  <div class="modal_body_order">
+    <div class="cross cross_order"></div>*/
+
+
+ let popup_btn = document.querySelectorAll('._popup_btn');
+
+ for(let i = 0; i < popup_btn.length; i++){
+  
+
+const popup = popup_btn[i]
+const modal_body = document.querySelector('.modal_body_'+ popup_btn[i].dataset.popup)
+const modal = document.querySelector('.modal_'+ popup_btn[i].dataset.popup)
+const cross = document.querySelector('.cross_'+ popup_btn[i].dataset.popup)
+
+   popup.addEventListener('click', (event) => {
+            modal.classList.toggle("active");
+            modal_body.classList.toggle("active");
+          })
+
+          cross.addEventListener('click', (event) => {
+            modal_body.classList.remove("active");
+            modal.classList.remove("active");
+          }) 
+}
+
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////форма////////////////////////////////////////////////////////////////////
     const form = document.getElementById('form');
@@ -286,8 +369,33 @@ if(animItems.length > 0){//проверяем есть ли они такие it
         keyboard: true,
       });
 
-
-
+/*еще варик
+ let swiper = new Swiper(".portfolio_slider", {
+        slidesPerView: 3,
+        spaceBetween: 80,
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        mousewheel: false,
+        keyboard: true,
+        breakpoints: {
+        // when window width is <= 499px
+        499: {
+            slidesPerView: 1,
+            spaceBetweenSlides: 50
+        },
+        // when window width is <= 999px
+        999: {
+            slidesPerView: 2,
+            spaceBetweenSlides: 50
+        }
+    }
+      });*/
 
 
 
