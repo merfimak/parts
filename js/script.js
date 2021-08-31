@@ -86,6 +86,20 @@ if(isMobile.any()){
     });
 
 
+/////////////////////////////////////////////////////////////поиск по сайту в шапке с скурытием//////////////////////////////////////////////////////////////
+
+    
+          const search_form = document.querySelector('.search_form')
+          const search_form_btn_for_mobile = document.querySelector('.search_form_btn_for_mobile')
+
+          search_form_btn_for_mobile.addEventListener('click', (event) => {
+            search_form.classList.toggle("active");
+          })
+
+          
+
+
+
 
 
 
